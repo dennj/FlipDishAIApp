@@ -1,0 +1,366 @@
+/* Base Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: transparent;
+    color: #111827;
+}
+
+/* Layout */
+.menu-carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.menu-carousel-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.menu-carousel {
+    display: flex;
+    gap: 12px;
+    padding: 0 4px;
+}
+
+.menu-carousel-item {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
+/* Card */
+.menu-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    /* Fixed height for consistency */
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.menu-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Image */
+.menu-card-image {
+    height: 160px;
+    background: #f3f4f6;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-card-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+}
+
+.menu-card-image-placeholder span {
+    font-size: 48px;
+    font-weight: 600;
+    color: #9ca3af;
+}
+
+/* Content */
+.menu-card-content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.menu-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.menu-card-price {
+    font-weight: 600;
+    color: #059669;
+}
+
+.menu-card-section {
+    font-size: 12px;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.menu-card-description {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Footer */
+.menu-card-footer {
+    padding: 16px;
+    border-top: 1px solid #e5e7eb;
+    background: #fff;
+    margin-top: auto;
+}
+
+.menu-card-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.menu-card-button:hover {
+    background: #374151;
+}
+
+.menu-card-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.button-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 24px;
+    text-align: center;
+    color: #6b7280;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+/* --- Options Mode Styles --- */
+
+.options-mode .options-header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 12px;
+    background: #fff;
+    min-height: 52px;
+}
+
+.header-title-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.back-button:hover {
+    color: #111827;
+    background: #f3f4f6;
+}
+
+.options-header h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.step-dots {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #e5e7eb;
+}
+
+.dot.active {
+    background: #059669;
+    width: 6px;
+    /* slightly larger */
+}
+
+.options-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    background: #fff;
+}
+
+.options-list-scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding: 0;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space details and check */
+    padding: 12px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.option-row:last-child {
+    border-bottom: none;
+}
+
+.option-row:hover {
+    background: #f9fafb;
+}
+
+.option-row.selected {
+    background: #ecfdf5;
+    /* Very light green */
+}
+
+.option-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Stack name and price if needed, or keep row */
+    gap: 2px;
+}
+
+.option-name {
+    font-size: 13px;
+    color: #374151;
+    font-weight: 400;
+}
+
+.option-row.selected .option-name {
+    font-weight: 500;
+    color: #065f46;
+}
+
+.option-price {
+    font-size: 12px;
+    color: #059669;
+}
+
+.selection-check {
+    color: #059669;
+    display: flex;
+    align-items: center;
+}
+
+/* Loading & Success States */
+.menu-card.success-mode,
+.menu-card.loading-mode {
+    align-items: center;
+    justify-content: center;
+}
+
+.success-content,
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 100%;
+}
+
+.success-icon {
+    color: #059669;
+    animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #059669;
+    margin-top: 8px;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #111827;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
